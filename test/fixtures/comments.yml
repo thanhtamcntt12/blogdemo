@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ontent: MyString
+  user_id: 
+  micropost_id: 
+
+two:
+  ontent: MyString
+  user_id: 
+  micropost_id: 

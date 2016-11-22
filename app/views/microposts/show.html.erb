@@ -1,0 +1,42 @@
+<div class="row">
+  <aside class="col-md-6">
+    <section class="microposts">
+      <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
+      <span class="content">
+        <%= @micropost.content %>
+        <%= image_tag @micropost.picture.url if @micropost.picture? %>
+      </span>
+      <span class="timestamp">
+        Posted 
+        <% if @micropost.created_at === Date.today %>
+           <%= @micropost.created_at.strftime("Today %b %d") %>
+        <% else %>
+           <%= @micropost.created_at.strftime("%A %b %d") %>
+        <% end %>         
+      </span>
+    </section>
+    <% if logged_in? %> 
+      <% if current_user.following?(@micropost.user)  || current_user == @micropost.user %> 
+      <section class="micropost_form">
+        <%= render 'comments/comment_form' %>
+      </section>
+      <% end %>   
+    <% end %>
+  </aside>
+  
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <span class="content">
+
+      <% @micropost.comments.each do |comment| %>
+      <h1><%comment.user.name%></h1>
+      <%= comment.content%>
+       <%= comment.created_at %>
+      <br>
+    <% end %>    
+    </span>
+    
+  </div>
+    
+</div>

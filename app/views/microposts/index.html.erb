@@ -1,0 +1,18 @@
+<% if logged_in? %>
+<div class="subtoc">
+	<h3>Entrie Feed</h3>
+	<ol class="microposts">
+		<%= render @microposts %>
+
+	</ol>
+	<%= will_paginate @microposts %>
+</div>
+<% else %>
+<div class="subtoc">
+	<h3>Entrie Feed chua </h3>
+	<ol class="microposts">
+		<%= render @microposts %>
+
+	</ol>
+	<%= will_paginate @microposts %>
+<% end %> 	
